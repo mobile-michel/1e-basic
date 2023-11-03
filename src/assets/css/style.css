@@ -1,5 +1,6 @@
 /* Theming */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
 :root {
   --white: #f9f9f9;
   --black: #36383F;
@@ -8,7 +9,8 @@
 }
 
 /* Reset */
-header *, body {
+body,
+header * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -19,16 +21,8 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
 /* Header */
-body > header {
+[role="banner"] {
   background-color: var(--black);
   box-shadow: 1px 1px 5px 0px var(--grey);
   position: sticky;
@@ -37,15 +31,16 @@ body > header {
 }
 
 /* Logo */
-body > header > a {
+[role="banner"]>a {
   display: inline-block;
   color: var(--white);
   font-size: 60px;
   margin-left: 10px;
+  text-decoration: none;
 }
 
 /* Nav menu */
-body > header > nav {
+[aria-label="primary"] {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -53,13 +48,18 @@ body > header > nav {
   overflow: hidden;
 }
 
-body > header > nav > ul a {
+[aria-label="primary"]>ul {
+  list-style: none;
+}
+
+[aria-label="primary"]>ul a {
   display: block;
   padding: 30px;
   color: var(--white);
+  text-decoration: none;
 }
 
-body > header > nav > ul a:hover {
+[aria-label="primary"]>ul a:hover {
   background-color: var(--grey);
 }
 
@@ -67,19 +67,19 @@ body > header > nav > ul a:hover {
   background-color: var(--active);
 }
 
-body > header > nav {
+[aria-label="primary"] {
   max-height: 0;
   transition: max-height 0.5s ease-out;
 }
 
 /* Menu Icon */
-body > header > label {
+[role="banner"] label {
   cursor: pointer;
   float: right;
   padding: 40px 20px;
 }
 
-body > header > label > span {
+[role="banner"] label>span {
   background: var(--white);
   display: block;
   height: 2px;
@@ -87,8 +87,8 @@ body > header > label > span {
   width: 24px;
 }
 
-body > header > label > span::before,
-body > header > label > span::after {
+[role="banner"] label>span::before,
+[role="banner"] label>span::after {
   background: var(--white);
   content: "";
   display: block;
@@ -98,40 +98,40 @@ body > header > label > span::after {
   width: 100%;
 }
 
-body > header > label > span::before {
+[role="banner"] label>span::before {
   top: 5px;
 }
 
-body > header > label > span::after {
+[role="banner"] label>span::after {
   top: -5px;
 }
 
-body > header > input {
+[role="banner"] input {
   display: none;
 }
 
 /* Toggle menu icon */
-body > header > input:checked ~ nav {
+[role="banner"] input:checked~nav {
   max-height: 100%;
 }
 
-body > header > input:checked ~ label span {
+[role="banner"] input:checked~label span {
   background: transparent;
 }
 
-body > header > input:checked ~ label span::before {
+[role="banner"] input:checked~label span::before {
   transform: rotate(-45deg);
   top: 0;
 }
 
-body > header > input:checked ~ label span::after {
+[role="banner"] input:checked~label span::after {
   transform: rotate(45deg);
   top: 0;
 }
 
 /* Responsiveness */
 @media (min-width: 600px) {
-  body > header > nav {
+  [aria-label="primary"] {
     max-height: none;
     top: 0;
     position: relative;
@@ -139,19 +139,25 @@ body > header > input:checked ~ label span::after {
     width: fit-content;
     background-color: transparent;
   }
-  body > header > nav > ul li {
+
+  [aria-label="primary"]>ul li {
     float: left;
   }
-  body > header > label {
+
+  [role="banner"] label {
     display: none;
   }
 }
-main, footer {
+
+main,
+footer {
   margin: 1em;
 }
 
 @media (min-width: 600px) {
-  main, footer {
+
+  main,
+  footer {
     width: 80%;
     margin: auto;
   }
