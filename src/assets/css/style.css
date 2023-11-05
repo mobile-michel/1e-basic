@@ -40,7 +40,7 @@ body {
 }
 
 /* Nav menu */
-[aria-label="primary"] {
+[aria-label="Main"] {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -48,18 +48,18 @@ body {
   overflow: hidden;
 }
 
-[aria-label="primary"]>ul {
+[aria-label="Main"]>ul {
   list-style: none;
 }
 
-[aria-label="primary"]>ul a {
+[aria-label="Main"]>ul a {
   display: block;
   padding: 30px;
   color: var(--white);
   text-decoration: none;
 }
 
-[aria-label="primary"]>ul a:hover {
+[aria-label="Main"]>ul a:hover {
   background-color: var(--grey);
 }
 
@@ -67,7 +67,7 @@ body {
   background-color: var(--active);
 }
 
-[aria-label="primary"] {
+[aria-label="Main"] {
   max-height: 0;
   transition: max-height 0.5s ease-out;
 }
@@ -131,7 +131,7 @@ body {
 
 /* Responsiveness */
 @media (min-width: 600px) {
-  [aria-label="primary"] {
+  [aria-label="Main"] {
     max-height: none;
     top: 0;
     position: relative;
@@ -140,7 +140,7 @@ body {
     background-color: transparent;
   }
 
-  [aria-label="primary"]>ul li {
+  [aria-label="Main"]>ul li {
     float: left;
   }
 
